@@ -1,202 +1,399 @@
-<!DOCTYPE HTML>
-<!--
-	Prologue by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>JuanManuelSalva</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--<link rel="icon" href="images/boiler.gif">-->
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juan Manuel Salvá — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-		<!-- Header -->
-			<div id="header">
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+      background: #000;
+    }
 
-				<div class="top">
+    /* ── Canvas background ── */
+    #bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
 
-					<!-- Logo -->
-						<div id="logo">
-							<span class="image avatar48"><img src="images/yo_xd.jpg" alt="" /></span>
-							<h1 id="title">Juan Manuel Salvá</h1>
-							<p>Game Developer</p>
-						</div>
+    /* ═══════════════════════════════════════
+       HEADER — Name + taglines
+    ═══════════════════════════════════════ */
+    .landing-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 36vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 30;
+      text-align: center;
+      pointer-events: none;
+      gap: 0;
+    }
 
-					<!-- Nav -->
-						<nav id="nav">
-							<ul>
-								<li><a href="#top" id="top-link"><span class="icon solid fa-home">Intro</span></a></li>
-								<li><a href="#portfolio" id="portfolio-link"><span class="icon solid fa-th">Portfolio</span></a></li>
-								<li><a href="#about" id="about-link"><span class="icon solid fa-user">About Me</span></a></li>
-							</ul>
-						</nav>
+    .header-name {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(2rem, 5.5vw, 4.2rem);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 0.04em;
+      line-height: 1;
+      margin-bottom: 1.1rem;
+    }
+    /* Split the name color: left half red, right half cyan */
+    .header-name .half-f1   { color: #dc0000; }
+    .header-name .half-gd   { color: #00f5d4; }
+    .header-name .half-white{ color: #fff; }
 
-				</div>
+    .header-divider {
+      width: clamp(60px, 8vw, 120px);
+      height: 1px;
+      background: linear-gradient(90deg, #dc0000, rgba(255,255,255,0.3) 50%, #00f5d4);
+      margin-bottom: 1.1rem;
+    }
 
-				<div class="bottom">
+    .header-choose {
+      font-family: 'Orbitron', monospace;
+      font-size: clamp(0.65rem, 1.4vw, 0.95rem);
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 0.65rem;
+    }
 
-					<!-- Social Icons -->
-						<ul class="icons">
-							<li><a href="https://www.linkedin.com/in/juan-manuel-salva/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-							<li><a href="https://github.com/JuanmaSalva" class="icon brands fa-github"><span class="label">Github</span></a></li>
-							<li><a href="mailto:juanma.salva.work@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-						</ul>
+    .header-tagline {
+      font-size: clamp(0.6rem, 1.1vw, 0.78rem);
+      letter-spacing: 0.18em;
+      color: rgba(255, 255, 255, 0.25);
+      text-transform: uppercase;
+      font-style: italic;
+    }
 
-				</div>
+    /* ═══════════════════════════════════════
+       SPLIT — Panels section
+    ═══════════════════════════════════════ */
+    .split {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 64vh;
+      display: flex;
+      z-index: 1;
+    }
 
-			</div>
+    /* ── Vertical divider ── */
+    .divider {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(255,255,255,0.15) 20%,
+        rgba(255,255,255,0.3) 50%,
+        rgba(255,255,255,0.15) 80%,
+        transparent 100%
+      );
+      transform: translateX(-50%);
+      z-index: 20;
+      pointer-events: none;
+      transition: left 0.7s cubic-bezier(0.77, 0, 0.175, 1);
+    }
 
-		<!-- Main -->
-			<div id="main">
+    /* ── Panels ── */
+    .panel {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+      text-decoration: none;
+      cursor: pointer;
+      transition: width 0.7s cubic-bezier(0.77, 0, 0.175, 1);
+    }
 
-				<!-- Intro -->
-					<section id="top" class="one dark cover">
-						<div class="container">
+    .split:has(.panel-f1:hover) .panel-f1      { width: 62%; }
+    .split:has(.panel-f1:hover) .panel-gamedev { width: 38%; }
+    .split:has(.panel-gamedev:hover) .panel-gamedev { width: 62%; }
+    .split:has(.panel-gamedev:hover) .panel-f1  { width: 38%; }
+    .split:has(.panel-gamedev:hover) .divider  { left: 62%; }
+    .split:has(.panel-f1:hover) .divider       { left: 38%; }
 
-							<header>
-								<h2 class="alt">Welcome to my portfolio!</h2>
-								<p>The greatest achievements are yet to be made</p>
-							</header>
+    /* ── F1 Panel ── */
+    .panel-f1 { background: #080808; }
 
-							<footer>
-								<a href="#portfolio" class="button scrolly">Start</a>
-							</footer>
+    .panel-f1 .panel-bg-stripe {
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        -55deg, transparent, transparent 60px,
+        rgba(220,0,0,0.025) 60px, rgba(220,0,0,0.025) 120px
+      );
+      pointer-events: none;
+    }
 
-						</div>
-					</section>
+    .panel-f1 .panel-glow {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(220,0,0,0.12) 0%, transparent 70%);
+      opacity: 0; transition: opacity 0.6s ease; pointer-events: none;
+    }
+    .panel-f1:hover .panel-glow { opacity: 1; }
 
-				<!-- Portfolio -->
-					<section id="portfolio" class="two">
-						<div class="container">
+    .f1-giant-text {
+      position: absolute;
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(8rem, 20vw, 16rem);
+      font-weight: 900;
+      color: rgba(220,0,0,0.04);
+      letter-spacing: -0.05em;
+      pointer-events: none; user-select: none;
+      transition: color 0.5s, transform 0.5s;
+      transform: translateY(10px);
+    }
+    .panel-f1:hover .f1-giant-text { color: rgba(220,0,0,0.09); transform: translateY(0); }
 
-							<header>
-								<h2>Portfolio</h2>
-							</header>
+    .f1-bottom-bar {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: #dc0000; transform: scaleX(0); transform-origin: left;
+      transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+    .panel-f1:hover .f1-bottom-bar { transform: scaleX(1); }
 
-						
+    /* ── Game Dev Panel ── */
+    .panel-gamedev { background: #050510; }
 
-							<div class="row">
-								<div class="col-4 col-12-mobile">
-									<article class="item">
-										<a href="Histera.html" class="image fit"><img src="images/Histera/HisteraMain.jpg" alt="" /></a>
-										<header>
-											<h3>Histera</h3>
-										</header>
-									</article>
-									
-									<article class="item">
-										<a href="RoboPacMan.html" class="image fit"><img src="images/RoboPacMan/Banner.png" alt="" /></a>
-										<header>
-											<h3>RoboPacMan</h3>
-										</header>
-									</article>
-									<article class="item">
-										<a href="TankShowdown.html" class="image fit"><img src="images/TankShowdown/fondoindex1-1920x1080.png" alt="" /></a>
-										<header>
-											<h3>Tanks Showdown</h3>
-										</header>
-									</article>
-								</div>
+    .panel-gamedev .panel-bg-stripe {
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        0deg, transparent, transparent 3px,
+        rgba(0,245,212,0.012) 3px, rgba(0,245,212,0.012) 4px
+      );
+      pointer-events: none;
+    }
 
-								<div class="col-4 col-12-mobile">
-									<article class="item">
-										<a href="QuackEngine.html" class="image fit"><img src="images/QuackEngineLogo.png" alt="" /></a>
-										<header>
-											<h3>Quack Engine</h3>
-										</header>
-									</article>
-									<article class="item">
-										<a href="F1Graphs.html" class="image fit"><img src="images/F1Graphs/portada.png" alt="" /></a>
-										<header>
-											<h3>F1 data</h3>
-										</header>
-									</article>
-									<article class="item">
-										<a href="Mobile.html" class="image fit"><img src="images/Mobile/Banner.png" alt="" /></a>
-										<header>
-											<h3>Mobile</h3>
-										</header>
-									</article>
-								</div>
+    .panel-gamedev .panel-glow {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0,245,212,0.1) 0%, transparent 70%);
+      opacity: 0; transition: opacity 0.6s ease; pointer-events: none;
+    }
+    .panel-gamedev:hover .panel-glow { opacity: 1; }
 
-								<div class="col-4 col-12-mobile">
-									
-									<article class="item">
-										<a href="F1TS.html" class="image fit"><img src="images/F1TS_banner.png" alt="" /></a>
-										<header>
-											<h3>F1 Telemetry System/Library</h3>
-										</header>
-									</article>
-									<article class="item">
-										<a href="ProgramaDeConvivenciaEspacial.html" class="image fit"><img src="images/ProgramaConvivenciaEspacialLogo.png" alt="" /></a>
-										<header>
-											<h3>Programa de Convivencia Espacial</h3>
-										</header>
-									</article>									
-									<article class="item">
-										<a href="GameJams.html" class="image fit"><img src="images/GameJams/Banner2.png" alt="" /></a>
-										<header>
-											<h3>Game Jams</h3>
-										</header>
-									</article>
-								</div>
-							</div>
+    .gd-giant-text {
+      position: absolute;
+      font-family: 'Orbitron', monospace;
+      font-size: clamp(5rem, 13vw, 11rem);
+      font-weight: 900;
+      color: rgba(0,245,212,0.03);
+      letter-spacing: -0.03em;
+      pointer-events: none; user-select: none;
+      transition: color 0.5s, transform 0.5s;
+      transform: translateY(10px);
+    }
+    .panel-gamedev:hover .gd-giant-text { color: rgba(0,245,212,0.07); transform: translateY(0); }
 
-						</div>
-					</section>
+    .gd-bottom-bar {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, #00f5d4, transparent);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+    .panel-gamedev:hover .gd-bottom-bar { transform: scaleX(1); }
 
-				<!-- About Me -->
-					<section id="about" class="three">
-						<div class="container">
+    /* ── Panel Content ── */
+    .panel-content {
+      position: relative; z-index: 2; text-align: center;
+      padding: 1.5rem; display: flex; flex-direction: column;
+      align-items: center;
+    }
 
-							<header>
-								<h2>About Me</h2>
-							</header>
+    .panel-badge {
+      display: inline-block; font-family: 'Orbitron', monospace;
+      font-size: 0.58rem; letter-spacing: 0.4em; text-transform: uppercase;
+      padding: 0.32rem 1rem; border: 1px solid;
+      margin-bottom: 1.4rem; transition: background 0.3s, color 0.3s;
+    }
+    .panel-f1 .panel-badge       { color: #dc0000; border-color: rgba(220,0,0,0.5); }
+    .panel-f1:hover .panel-badge { background: rgba(220,0,0,0.1); }
+    .panel-gamedev .panel-badge       { color: #00f5d4; border-color: rgba(0,245,212,0.4); }
+    .panel-gamedev:hover .panel-badge { background: rgba(0,245,212,0.08); }
 
-							<a class="image featured"><img src="images/photos/long.jpg" alt="" /></a>
+    .panel-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      font-weight: 900; color: #fff; line-height: 1.1;
+      margin-bottom: 0.9rem;
+      transition: letter-spacing 0.4s;
+    }
+    .panel:hover .panel-title { letter-spacing: 0.02em; }
+    .panel-f1 .panel-title em    { color: #dc0000; font-style: normal; }
+    .panel-gamedev .panel-title em { color: #00f5d4; font-style: normal; }
 
-							<p> Hi, I'm Juan Manuel Salvá, a game developer seeking to gain maximum hands-on experience being part of a dynamic and creative team that
-								is at the forefront of technology, working on projects that have a positive impact on society.
-								Currently working in Palma de Mallorca but willing to move to other places.
-							</p>
+    .panel-sub {
+      font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.35); margin-bottom: 2rem;
+    }
 
-							<p>
-								I've worked on both individual and group projects with amazing friends and developers.
-							</p>
+    .enter-btn {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-family: 'Orbitron', monospace; font-size: 0.72rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 0.75rem 2rem; border: 1px solid;
+      transition: background 0.3s, color 0.3s, box-shadow 0.3s, gap 0.3s;
+    }
+    .panel:hover .enter-btn { gap: 1rem; }
 
-							<p>
-								I love filmmaking, exercising, and everything on wheels basically.
-							</p>
+    .panel-f1 .enter-btn { color: #dc0000; border-color: #dc0000; }
+    .panel-f1:hover .enter-btn {
+      background: #dc0000; color: #fff;
+      box-shadow: 0 0 30px rgba(220,0,0,0.35);
+    }
+    .panel-gamedev .enter-btn { color: #00f5d4; border-color: #00f5d4; }
+    .panel-gamedev:hover .enter-btn {
+      background: #00f5d4; color: #050510;
+      box-shadow: 0 0 30px rgba(0,245,212,0.35);
+    }
 
-							<p>
-								You can contact with me at <i>juanma.salva.work@gmail.com</i> or using the buttons on the bottom left.
-							</p>
-						</div>
-					</section>
-			</div>
+    /* ── Separator line between header and panels ── */
+    .header-panel-sep {
+      position: fixed;
+      top: 36vh;
+      left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(220,0,0,0.4) 25%,
+        rgba(255,255,255,0.15) 50%,
+        rgba(0,245,212,0.4) 75%,
+        transparent 100%
+      );
+      z-index: 25;
+      pointer-events: none;
+    }
 
-		<!-- Footer -->
-			<div id="footer">
+    /* ── Mobile ── */
+    @media (max-width: 640px) {
+      html, body { overflow: auto; }
+      .landing-header {
+        position: relative; height: auto;
+        padding: 2.5rem 1.5rem 2rem;
+      }
+      .header-panel-sep { top: auto; position: relative; }
+      .split {
+        position: relative; height: auto;
+        flex-direction: column;
+      }
+      .panel,
+      .split:has(.panel-f1:hover) .panel-f1,
+      .split:has(.panel-f1:hover) .panel-gamedev,
+      .split:has(.panel-gamedev:hover) .panel-gamedev,
+      .split:has(.panel-gamedev:hover) .panel-f1 {
+        width: 100%; height: 44vh;
+      }
+      .divider { display: none; }
+      .f1-giant-text { font-size: 5rem; }
+      .gd-giant-text { font-size: 4rem; }
+    }
+  </style>
+</head>
+<body>
 
-				<!-- Copyright -->
-					<ul class="copyright">
-						<li>&copy; Juan Manuel Salvá. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
+  <canvas id="bg"></canvas>
 
-			</div>
+  <!-- ═══ HEADER ═══ -->
+  <header class="landing-header">
+    <h1 class="header-name">
+      <span class="half-f1">Juan&nbsp;</span><span class="half-white">Manuel&nbsp;</span><span class="half-gd">Salvá</span>
+    </h1>
+    <div class="header-divider"></div>
+    <p class="header-choose">Choose your theme</p>
+    <p class="header-tagline">Same content &nbsp;&middot;&nbsp; different way of seeing it</p>
+  </header>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+  <div class="header-panel-sep"></div>
 
-	</body>
+  <!-- ═══ PANELS ═══ -->
+  <div class="split">
+    <div class="divider"></div>
+
+    <!-- Game Dev Panel -->
+    <a class="panel panel-gamedev" href="GameDevPortfolio/index.html">
+      <div class="panel-bg-stripe"></div>
+      <div class="panel-glow"></div>
+      <div class="gd-giant-text">&lt;/&gt;</div>
+      <div class="panel-content">
+        <span class="panel-badge">Game Dev</span>
+        <h2 class="panel-title">Game<br><em>Developer</em></h2>
+        <p class="panel-sub">Games &middot; Engines &middot; Systems</p>
+        <span class="enter-btn">Enter &nbsp;&#8594;</span>
+      </div>
+      <div class="gd-bottom-bar"></div>
+    </a>
+
+    <!-- Motorsport Panel -->
+    <a class="panel panel-f1" href="MotorsportPortfolio/index.html">
+      <div class="panel-bg-stripe"></div>
+      <div class="panel-glow"></div>
+      <div class="f1-giant-text">F1</div>
+      <div class="panel-content">
+        <span class="panel-badge">Motorsport</span>
+        <h2 class="panel-title">Software<br><em>Engineer</em></h2>
+        <p class="panel-sub">Telemetry &middot; Data &middot; Performance</p>
+        <span class="enter-btn">Enter &nbsp;&#8594;</span>
+      </div>
+      <div class="f1-bottom-bar"></div>
+    </a>
+  </div>
+
+  <script>
+    /* ── Particle canvas ── */
+    const canvas = document.getElementById('bg');
+    const ctx = canvas.getContext('2d');
+    let W, H;
+
+    function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const particles = Array.from({ length: 90 }, (_, i) => ({
+      side: i < 45 ? 'gd' : 'f1',
+      x: i < 45 ? Math.random() * 0.5 : 0.5 + Math.random() * 0.5,
+      y: Math.random(),
+      vx: (Math.random() - 0.5) * 0.0003,
+      vy: -(Math.random() * 0.0004 + 0.0001),
+      r: Math.random() * 1.5 + 0.4,
+      alpha: Math.random() * 0.4 + 0.08,
+    }));
+
+    (function draw() {
+      ctx.clearRect(0, 0, W, H);
+      particles.forEach(p => {
+        p.x += p.vx; p.y += p.vy;
+        if (p.y < -0.01) p.y = 1.02;
+        if (p.x < 0) p.x = 1; if (p.x > 1) p.x = 0;
+        ctx.beginPath();
+        ctx.arc(p.x * W, p.y * H, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = p.side === 'f1' ? `rgba(220,0,0,${p.alpha})` : `rgba(0,245,212,${p.alpha})`;
+        ctx.fill();
+      });
+      requestAnimationFrame(draw);
+    })();
+  </script>
+
+</body>
 </html>

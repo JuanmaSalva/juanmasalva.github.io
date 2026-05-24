@@ -1,0 +1,15 @@
+icon,name,level,category
+🔧,C++,90,Programming
+💻,C#,85,Programming
+🐍,Python,80,Programming
+🎮,Unity,90,Engines & Frameworks
+⚡,Unreal Engine,70,Engines & Frameworks
+🌐,OpenGL / GLSL,72,Engines & Frameworks
+🎯,Game Design,80,Design & Systems
+🔩,Physics Sims,78,Design & Systems
+🤖,AI / NavMesh,75,Design & Systems
+📊,Data Analysis,85,Data & Tools
+📡,Telemetry Systems,80,Data & Tools
+🛠️,Git,85,Data & Tools
+📱,Mobile Dev,70,Data & Tools
+🏎️,Performance Profiling,78,Data & Tools

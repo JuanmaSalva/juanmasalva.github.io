@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juan Manuel Salvá — F1 Software Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <canvas id="bg"></canvas>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a class="nav-logo" href="#hero">JMS <span class="accent">◆</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-lap">
+      <span class="lap-label">BEST LAP</span>
+      <span class="lap-time" id="lap-display">1:18.234</span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="hero-label">
+          <span class="label-line"></span>
+          FORMULA 1 SOFTWARE DEVELOPER
+        </div>
+        <h1>
+          <span class="name-first">Juan Manuel</span>
+          <span class="name-last accent">Salvá</span>
+        </h1>
+        <p class="hero-desc">
+          Game developer with a passion for motorsport, transitioning into
+          high-performance software engineering for F1. Specialized in real-time
+          systems, telemetry pipelines, and performance-critical applications.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">Race Log</a>
+          <a href="#contact" class="btn btn-outline">Open Comms</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="telemetry-hud">
+          <div class="hud-header">
+            <span>LIVE TELEMETRY</span>
+            <span class="hud-status">● ACTIVE</span>
+          </div>
+          <div class="hud-row">
+            <span class="hud-label">SPEED</span>
+            <span class="hud-val" id="hud-speed">317</span>
+            <span class="hud-unit">km/h</span>
+          </div>
+          <div class="hud-bar-wrap">
+            <div class="hud-bar" id="hud-speed-bar" style="width:90%"></div>
+          </div>
+          <div class="hud-row">
+            <span class="hud-label">RPM</span>
+            <span class="hud-val" id="hud-rpm">14,823</span>
+          </div>
+          <div class="hud-bar-wrap">
+            <div class="hud-bar red" id="hud-rpm-bar" style="width:98%"></div>
+          </div>
+          <div class="hud-row hud-row-small">
+            <div class="hud-cell first">
+              <span class="hud-label">GEAR</span>
+              <span class="hud-val gear" id="hud-gear">7</span>
+            </div>
+            <div class="hud-cell">
+              <span class="hud-label">THROTTLE</span>
+              <span class="hud-val med" id="hud-throttle">98%</span>
+            </div>
+            <div class="hud-cell">
+              <span class="hud-label">BRAKE</span>
+              <span class="hud-val med" id="hud-brake">0%</span>
+            </div>
+          </div>
+          <div class="hud-drs">
+            <span>DRS</span>
+            <span class="drs-indicator" id="hud-drs">OPEN</span>
+          </div>
+          <div class="hud-tyre">
+            <span class="hud-label">TYRE</span>
+            <span class="tyre-soft">SOFT ●</span>
+            <span class="hud-label" style="margin-left:auto">LAP</span>
+            <span class="hud-val med" id="hud-lap">14 / 57</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>SCROLL</span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="section-label">
+      <span class="label-num">01</span>
+      <span>DRIVER PROFILE</span>
+    </div>
+    <div class="about-grid">
+      <div class="about-bio reveal">
+        <h2>Engineering at the <span class="accent">limit</span></h2>
+        <p id="bio-text">Loading...</p>
+        <div class="about-location">
+          <span class="location-icon">◆</span>
+          <span id="bio-location">Palma de Mallorca — open to relocation</span>
+        </div>
+      </div>
+      <div class="about-stats">
+        <div class="stat-card reveal" style="transition-delay:0.1s">
+          <div class="stat-num">5+</div>
+          <div class="stat-label">Years Programming</div>
+        </div>
+        <div class="stat-card reveal" style="transition-delay:0.2s">
+          <div class="stat-num">9+</div>
+          <div class="stat-label">Projects Shipped</div>
+        </div>
+        <div class="stat-card reveal" style="transition-delay:0.3s">
+          <div class="stat-num">2</div>
+          <div class="stat-label">F1 Tools Built</div>
+        </div>
+        <div class="stat-card reveal" style="transition-delay:0.4s">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Languages</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="section-label">
+      <span class="label-num">02</span>
+      <span>RACE LOG</span>
+    </div>
+    <h2 class="reveal">Projects</h2>
+    <div class="filter-bar reveal" id="filter-bar">
+      <button class="filter-btn active" data-cat="all">All</button>
+      <button class="filter-btn" data-cat="Motorsport Software">Motorsport</button>
+      <button class="filter-btn" data-cat="Engine Development">Engine Dev</button>
+      <button class="filter-btn" data-cat="Game Development">Games</button>
+    </div>
+    <div class="projects-grid" id="projects-grid">
+      <div class="loading-msg">Loading projects...</div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <div class="section-label">
+      <span class="label-num">03</span>
+      <span>TECHNICAL SPECS</span>
+    </div>
+    <h2 class="reveal">Skills</h2>
+    <div class="skills-grid" id="skills-grid">
+      <div class="loading-msg">Loading skills...</div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section">
+    <div class="section-label">
+      <span class="label-num">04</span>
+      <span>CHAMPIONSHIP HISTORY</span>
+    </div>
+    <h2 class="reveal">Experience</h2>
+    <div class="timeline" id="timeline">
+      <div class="loading-msg">Loading experience...</div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="section-label">
+      <span class="label-num">05</span>
+      <span>PIT WALL COMMS</span>
+    </div>
+    <div class="contact-content reveal">
+      <h2>Let's build something <span class="accent">fast</span></h2>
+      <p id="contact-desc">
+        Looking for a software developer who's as passionate about F1 as they
+        are about clean, high-performance code? Let's talk.
+      </p>
+      <div class="contact-links" id="contact-links">
+        <!-- Populated from CSV -->
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span id="footer-name">Juan Manuel Salvá</span>
+    <span class="footer-sep">◆</span>
+    <span>All rights reserved © <span id="year"></span></span>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="../data/data.js"></script>
+  <script src="js/scene.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+
