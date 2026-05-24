@@ -1,0 +1,3 @@
+company,role,start_date,end_date,period,location,description,type,tags,current
+Independent,Game Developer & Tools Engineer,2020,Present,2020 — Present,Palma de Mallorca,"Built and shipped multiple games and developer tools independently. Developed open-source F1 telemetry systems, a custom game engine, and automated data visualization pipelines. All projects published on GitHub.",Work,"Unity|C#|C++|Python|OpenGL",true
+CITM — UPC,BSc Game Design & Development,2019,2023,2019 — 2023,Barcelona,"Bachelor's degree focused on real-time systems, graphics programming, game architecture, and software engineering. Built a custom engine, networked multiplayer games, and bespoke tooling throughout the programme.",Education,"C++|C#|Unity|OpenGL|Algorithms",false
